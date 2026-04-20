@@ -3358,8 +3358,8 @@ class FastLlamaModel:
                     name = name[: len(name) - len("-bnb-4bit")]
                     model.peft_config[active_adapter].base_model_name_or_path = name
                 pass
-            # Add revision to enable future fast inference paths
-            # [TODO] Bugs out!see https://github.com/unslothai/unsloth/issues/492
+            # Optional: set `revision` for fast inference paths (left disabled; breaks some setups).
+            # See https://github.com/unslothai/unsloth/issues/492
             # model.peft_config[active_adapter].revision = f"unsloth"
 
         from transformers.trainer import Trainer
